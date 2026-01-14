@@ -1,0 +1,40 @@
+# --- Python & Environment ---
+__pycache__/
+*.py[cod]
+*$py.class
+.env
+.venv
+env/
+venv/
+ENV/
+
+# --- FastAPI/Uvicorn Specific ---
+# Ignore local logs
+*.log
+
+# --- Databases ---
+# If using SQLite locally (common for FastAPI starters)
+*.db
+*.sqlite3
+
+# --- Testing & Coverage ---
+.pytest_cache/
+.tox/
+.coverage
+htmlcov/
+.mypy_cache/
+
+# --- IDE & Editor Settings ---
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# --- OS Specific ---
+.DS_Store
+Thumbs.db
+
+# --- Build & Distribution ---
+dist/
+build/
+*.egg-info/
