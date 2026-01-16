@@ -1,32 +1,36 @@
-
 from enum import Enum
 from pydantic import BaseModel, Field
 from typing import Optional
 
+
 class IssueStatus(str, Enum):
-  open = "open"
-  in_progress = "in_progress"
-  high = "high"
+    open = "open"
+    in_progress = "in_progress"
+    high = "high"
+
 
 class IssuePriority(str, Enum):
-  low = "low"
-  medium = "medium"
-  high = "high"
+    low = "low"
+    medium = "medium"
+    high = "high"
+
 
 class IssueCreate(BaseModel):
-  title: str = Field(min_length=3, max_length=100)
-  description: str = Field(min_length=5, max_length=1000)
-  priority: IssuePriority = IssuePriority.medium
+    title: str = Field(min_length=3, max_length=100)
+    description: str = Field(min_length=5, max_length=1000)
+    priority: IssuePriority = IssuePriority.medium
+
 
 class IssueUpdate(BaseModel):
-  title: Optional[str] = Field(default=None, max_length=100)
-  description: Optional[str] = Field(default=None, max_length=1000)
-  priority: Optional[IssuePriority] = None
-  status: Optional[IssueStatus] = None
+    title: Optional[str] = Field(default=None, max_length=100)
+    description: Optional[str] = Field(default=None, max_length=1000)
+    priority: Optional[IssuePriority] = None
+    status: Optional[IssueStatus] = None
+
 
 class IssueOut(BaseModel):
-  id: Optional[int]
-  title: Optional[str]
-  description: Optional[str]
-  priority: Optional[IssuePriority]
-  status: Optional[IssueStatus]
+    id: Optional[int]
+    title: Optional[str]
+    description: Optional[str]
+    priority: Optional[IssuePriority]
+    status: Optional[IssueStatus]
