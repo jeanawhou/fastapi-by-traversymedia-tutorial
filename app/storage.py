@@ -1,8 +1,13 @@
+import os
+
 from supabase import create_client, Client
 from fastapi.encoders import jsonable_encoder
+from dotenv import load_dotenv
 
-SUPABASE_URL = "https://gzoxocgqsfhpwonwjdzs.supabase.co"
-SUPABASE_KEY = "sb_publishable_-oYThbnput0ioruD1Be5lg_XnGT8z43"
+load_dotenv()
+
+SUPABASE_URL = os.getenv("SUPABASE_URL")
+SUPABASE_KEY = os.getenv("SUPABASE_KEY")
 
 supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 
